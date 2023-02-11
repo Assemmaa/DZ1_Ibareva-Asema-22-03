@@ -14,22 +14,13 @@ innCheck.onclick = () => {
     }
 }
 
-let box = document.getElementById("box");
-let right = 1;
-
-
-function right() {
-    box.style.right = 30 + "px";
-    box.style.left = 30 * right + "px";
-    right++;
-}
-
-let num = 0
-
-const count = () => {
-    num++
-    console.log(num)
-    if (position < 445) {
-        count()
+let position = 0
+function move () {
+    position++
+    document.querySelector('.box').style.left = position + 'px'
+    if (position >= 450) {
+        return true
     }
+    setTimeout(move,20)
 }
+   document.querySelector('.box').onclick = move
